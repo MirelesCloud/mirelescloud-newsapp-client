@@ -2,7 +2,7 @@ import React from 'react';
 import { useArticlesListQuery } from './generated/graphql';
 import ArticlesList from './ArticlesList'
 import { MainContainer, ContentWrapper } from './Styles'
-
+import { Modal, ModalProvider } from './Modal'
 
 const App = () => {
   const { data, error, loading } = useArticlesListQuery();
@@ -16,9 +16,11 @@ const App = () => {
    }
   return (
     <MainContainer>
-      <ContentWrapper>
-        <ArticlesList data={data} />
-      </ContentWrapper>
+      <ModalProvider>
+        <ContentWrapper>
+          <ArticlesList data={data} />
+        </ContentWrapper>
+      </ModalProvider>
     </MainContainer>
    )
 }
