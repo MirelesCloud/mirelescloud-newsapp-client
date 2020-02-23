@@ -7,7 +7,7 @@ export const QUERY_ARTICLES_LIST = gql`
       description
       content
       urlToImage
-      source {
+      source? {
         id
         name
       }

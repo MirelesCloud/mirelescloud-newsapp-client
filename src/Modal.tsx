@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useState, useEffect } from 'react'
-import { Overlay, Dialog, CloseModal  } from './Styles'
+import { Overlay, Dialog, CloseModal, ModalHeader  } from './Styles'
 import ReactDOM from 'react-dom';
 
 const Context = React.createContext(null);
@@ -28,7 +28,8 @@ export function Modal({onClose, children, ...props }: any) {
     ? ReactDOM.createPortal(
       <Overlay>
         <Dialog {...props}>
-          <CloseModal onClick={onClose}/>
+          <ModalHeader>
+          </ModalHeader>
           {children}
         </Dialog>
       </Overlay>,

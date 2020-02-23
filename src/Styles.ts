@@ -1,6 +1,9 @@
 import styled from '@emotion/styled'
 
-
+export const PageContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+`
 /* Header */
 export const Nav = styled('div')`
     background-color: #f7f7f5;
@@ -22,9 +25,21 @@ export const NavLeft = styled('div')`
     font-size: 2em;
     font-weight: 300;
 
-    @media (max-width: 378px) {
+    @media (max-width: 992px) {
         font-size: 1.5em;
       }
+    
+    @media(max-width: 768px) {
+      font-size: 1.3em;
+    }
+
+    @media(max-width: 650px) {
+      font-size: 1.1em;
+    }
+
+    @media(max-width: 378px) {
+      font-size: 0.7em;
+    }
 `
 
 export const NavCenter = styled('div')`
@@ -43,11 +58,55 @@ export const NavRight = styled('div')`
     font-size: 2rem;
     font-weight: 300;
 `
+
+export const Input = styled.input`
+  font-size: 16px;
+  border: solid 1px #dbdbdb;
+  border-radius: 3px;
+  color: #262626;
+  padding: 7px 33px;
+  border-radius: 3px;
+  color: #999;
+  cursor: text;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  background: #fafafa;
+
+  &:active,
+  &:focus {
+    text-align: left;
+  }
+`
+
+export const Button = styled.button`
+ background-color: transparent;
+ border: 1px solid #dbdbdb;
+ color: #262626;
+ border-radius: 4px;
+ cursor: pointer;
+ font-weight: 600;
+ padding: 5px 9px;
+ text-transition: capitalize;
+ font-size: 14px;
+ margin-left: 20px
+`
+
+/*Load Message */
+export const LoadContainer = styled.div`
+  top: 50%;
+  left: 50%;
+  padding: 26px 20px;
+  width: 100%;
+  text-align: center;
+
+`
 /* Body */
 export const MainContainer = styled('div')`
   max-width: 1010px;
   width: 100%;
   margin: 20px auto;
+  padding-bottom: 3rem;
 `
 
 export const ContentWrapper = styled('div')`
@@ -56,18 +115,36 @@ export const ContentWrapper = styled('div')`
   flex-wrap: wrap;
 `
 
+export const Footer = styled.footer`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: #cccccc;
+  text-align: center;
+`
+
 /* Card */
-export const CardContainer = styled('div')`
+export const Card = styled('div')`
     position: relative;
     flex-basis: 100%;
-    flex-basis: calc(33.333% - 20px);
+    flex-basis: calc(25% - 20px);
     margin: 10px;
     cursor: pointer;
     transition: 0.3s all ease-in;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    
 
     @media (max-width: 992px) {
-      flex-basis: calc( 50% - 20px);
+      flex-basis: calc( 33.333% - 20px);
     }
 
     @media (max-width: 600px) {
@@ -80,17 +157,24 @@ export const CardContainer = styled('div')`
 `
 
 export const CardBody = styled('div')`
-  padding: 5px 10px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
 `
 
 export const CardImage = styled('img')`
     cursor: pointer;
     width: 100%;
+    height: 10vw;
+    object-fit: cover;
+  
 `
 export const CardHeader = styled('div')`
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 5px;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 `;
 
 export const CardText = styled('p')`
@@ -100,12 +184,10 @@ export const CardText = styled('p')`
 `
 
 export const CardFooter = styled('div')`
-  padding: 3px;
-  margin: 3px;
-  font-size: 0.8rem;
-  bottom: 0;
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
 `
-
 
 export const InfoDetails = styled('div')`
   display: flex;
@@ -133,13 +215,13 @@ export const Overlay = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
 `
 
 export const Dialog = styled.div`
   background: white;
   border-radius: 5px;
-  padding: 20px;
+  padding: 40px 50px;
   position: absolute;
   top: 50%;
   left 50%;
@@ -185,32 +267,34 @@ export const Row = styled.div`
   }
 `
 
-export const ModalHeader = styled.h3``
+export const ModalHeader = styled.h4``
 
-export const ModalSubHeader = styled.h4``
 
 export const ModalText = styled.p`
   padding: 0px;
   margin: 3px;
 `
 export const CloseModal = styled.p`
-  &:after {
-    content: 'x';
-    position: relative;
-    float: right;
-    cursor: pointer;
-    font-weight: 500;
+  float: right;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  cursor: pointer;
+  margin: 0 0 50px;
+  
+
+  @:hover {
+    color:#000;
+    text-decoration: none;
+    opacity: .3;
   }
+  
 `
 
 export const Line = styled.hr`
   color: rgba(0, 0, 0, 0.7);
 `
 
-/*Footer */
-export const Footer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  width: 100%
-  background: #212121;
-`
+
