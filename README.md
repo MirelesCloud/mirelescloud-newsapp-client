@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is the client side of the app using Apollo client inspired by https://blog.logrocket.com/build-a-graphql-react-app-with-typescript/
+
+The server repo for this app is located here https://github.com/MirelesCloud/mirelescloud-newsapp-server  
+
+CSS is built with Emotion
+
 ## Available Scripts
 
 In the project directory, you can run:
